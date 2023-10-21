@@ -1,0 +1,78 @@
+/* Reset default margins and padding */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hide the save button by default */
+.save-note {
+  display: none;
+}
+
+/* Icon styling */
+.icons i {
+  margin: 0 15px; /* Shorter notation for margin */
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Text input styles */
+.note-textarea, .note-title {
+  width: 100%;
+  outline: none;
+  border: none;
+  color: #000; /* Specify the color for readability */
+}
+
+/* Textarea specific styles */
+.note-textarea {
+  resize: none;
+  height: calc(100% - 63px);
+  padding-top: 15px;
+}
+
+/* Title specific styles */
+.note-title {
+  height: 50px;
+  margin-top: 13px;
+  font-size: 3rem;
+}
+
+/* Read-only styles for title and textarea */
+.note-title:read-only, .note-textarea:read-only {
+  color: #757575;
+}
+
+/* List container styles */
+.list-container .card {
+  height: calc(100vh - 70px);
+  border: none; /* Combine border rules for consistency */
+  border-radius: 0;
+}
+
+.list-container {
+  padding-left: 0;
+}
+
+.list-container .list-group,
+.list-container .list-group-item:first-child,
+.list-container .card {
+  border: none; /* Combine border rules for consistency */
+  border-radius: 0;
+}
+
+/* Icon styling within the list container */
+.list-container i {
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+/* List item styles */
+.list-container .list-group-item {
+  border-left: none;
+  border-right: none;
+  padding: 20px;
+  cursor: pointer;
+}
+

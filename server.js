@@ -1,28 +1,27 @@
-const express = require('express');
+// Dependencies
+const express = require("express");
+const fs = require("fs");
+
+// Create an instance of the express app
 const app = express();
-const PORT = process.env.PORT || 3003;
 
-// Import routes
-const htmlRoutes = require('./routes/htmlRoutes');
-const apiRoutes = require('./routes/apiRoutes');
+// Define the port for the server
+const PORT = process.env.PORT || 8080;
 
-app.use(express.static("public"));
-
+// Middleware to parse request data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Mount the API and HTML routes
-app.use('/api', apiRoutes);
-app.use('/', htmlRoutes);
+// Serve static files (e.g., CSS, JavaScript, images)
+app.use("/public/assets", express.static(__dirname + "/public/assets"));
+
+// Define and use routes
+const htmlRoutes = require("./routes/html-routes");
+const apiRoutes = require("./routes/api-routes");
+htmlRoutes(app);
+apiRoutes(app);
 
 // Start the server
 app.listen(PORT, () => {
-    console.log(`App listening on PORT ${PORT}`);
+  console.log(`App is listening on PORT ${PORT}`);
 });
-
-module.exports = app;
-
-
-
-
-
